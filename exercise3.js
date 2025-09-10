@@ -6,8 +6,36 @@
 
 class Book {
   // YOUR CODE HERE
-}
+  #title;
+  #author;
+  #price;
 
+  constructor(title, author, price) {
+    this.#title = title;
+    this.#author = author;
+    this.#price = price;
+  }
+
+  addDiscount(discount) {
+    if (discount > 0 && discount < 100) {
+      this.#price = this.#price - (this.#price * discount) / 100;
+    }
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  get title() {
+    return this.#title;
+  }
+
+  set title(newTitle) {
+    if (newTitle && newTitle.trim() !== "") {
+      this.#title = newTitle;
+    }
+  }
+}
 
 // TEST CASE / DRIVER CODE
 const book1 = new Book("JavaScript Basics", "John Doe", 50);
